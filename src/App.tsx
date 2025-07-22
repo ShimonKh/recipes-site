@@ -9,7 +9,7 @@ function App() {
   const [recipeCounts, setRecipeCounts] = useState<Record<string, number>>({});
 
   const categories: Category[] = [
-    'salads', 'fish', 'meat', 'sides', 'breakfasts', 
+    'salads', 'fish', 'meat', 'sides', 'breakfasts',
     'soups', 'sauces', 'desserts', 'other'
   ];
 
@@ -17,10 +17,10 @@ function App() {
     // Fetch recipe counts for all categories
     const fetchCounts = async () => {
       const counts: Record<string, number> = {};
-      
+
       for (const category of categories) {
         try {
-          const response = await fetch(`/recipes/${category}.json`);
+          const response = await fetch(import.meta.env.BASE_URL +`recipes/${category}.json`);
           if (response.ok) {
             const text = await response.text();
             if (text.trim() !== '') {
@@ -37,7 +37,7 @@ function App() {
           counts[category] = 0;
         }
       }
-      
+
       setRecipeCounts(counts);
     };
 
@@ -56,8 +56,8 @@ function App() {
       {/* Main Content */}
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="space-y-6">
-          <CategorySelector 
-            value={selectedCategory} 
+          <CategorySelector
+            value={selectedCategory}
             onChange={setSelectedCategory}
             recipeCounts={recipeCounts}
           />
