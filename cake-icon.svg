@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <g>
+    <!-- Увеличенный торт: занимает почти всю область -->
+    <ellipse cx="24" cy="38" rx="18" ry="8" fill="#a67c52" stroke="#6d4c2b" stroke-width="2"/>
+    <rect x="6" y="16" width="36" height="22" rx="8" fill="#fff" stroke="#6d4c2b" stroke-width="2"/>
+    <!-- Слой крема (розовый) -->
+    <rect x="6" y="28" width="36" height="8" rx="4" fill="#f78da7" stroke="#6d4c2b" stroke-width="1.5"/>
+    <!-- Вишенка -->
+    <circle cx="24" cy="10" r="4" fill="#e94f4f" stroke="#6d4c2b" stroke-width="1.5"/>
+    <path d="M24 14v4" stroke="#6d4c2b" stroke-width="1.5"/>
+  </g>
+</svg>
