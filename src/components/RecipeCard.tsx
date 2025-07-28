@@ -28,6 +28,11 @@ export default function RecipeCard({ recipe }: Props) {
               <strong>Огонь:</strong> {metadata.heat}
             </p>
           )}
+          {metadata.notes && (
+            <p>
+              <strong>Заметки:</strong> {metadata.notes}
+            </p>
+          )}
         </div>
       )}
 

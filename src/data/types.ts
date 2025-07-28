@@ -18,5 +18,6 @@ export interface Recipe {
     servings?: string;
     equipment?: string;
     heat?: string;
+    notes?: string;
   };
 }
