@@ -21,11 +21,11 @@ export default function RecipeList({ category }: Props) {
   };
 
   return (
-    <div className="space-y-4">
+    <div className="recipe-list">
       {recipes.map((recipe) => (
         <div key={recipe.title}>
           <button
-            className="text-left w-full font-semibold text-lg hover:underline"
+            className="recipe-button"
             onClick={() => toggleExpand(recipe.title)}
           >
             {recipe.title}
