@@ -8,11 +8,11 @@ export default function RecipeCard({ recipe }: Props) {
   const { ingredients, steps, metadata } = recipe;
 
   return (
-    <div className="mt-2 p-4 border rounded bg-gray-50 space-y-4">
+    <div className="recipe-card">
 
       {/* Метаданные */}
       {metadata && (
-        <div className="text-sm text-gray-700 space-y-1">
+        <div className="recipe-metadata">
           {metadata.servings && (
             <p>
               <strong>Порции:</strong> {metadata.servings}
@@ -33,8 +33,8 @@ export default function RecipeCard({ recipe }: Props) {
 
       {/* Ингредиенты */}
       <div>
-        <h3 className="text-md font-bold mb-2">Ингредиенты:</h3>
-        <ul className="list-disc list-inside space-y-1">
+        <h3>Ингредиенты:</h3>
+        <ul>
           {ingredients.map((item, idx) => (
             <li key={idx}>{item}</li>
           ))}
@@ -43,8 +43,8 @@ export default function RecipeCard({ recipe }: Props) {
 
       {/* Приготовление */}
       <div>
-        <h3 className="text-md font-bold mb-2">Приготовление:</h3>
-        <ol className="list-decimal list-inside space-y-1">
+        <h3>Приготовление:</h3>
+        <ol>
           {steps.map((step, idx) => (
             <li key={idx}>{step}</li>
           ))}

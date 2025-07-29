@@ -58,16 +58,16 @@ function CategoryPage() {
   }, []);
 
   return (
-      <div className="min-h-screen bg-gray-50">
-        <header className="bg-white shadow-sm border-b border-gray-200">
+      <div className="app-container">
+        <header className="app-header">
           {/* Можно оставить header на всю ширину, либо тоже обернуть в контейнер */}
-          <div className="container py-6">
-            <h1 className="text-3xl font-bold text-gray-900">📚 Книга рецептов</h1>
+          <div className="container header-container">
+            <h1>📚 Книга рецептов</h1>
           </div>
         </header>
         <main>
-          <div className="container py-8">
-            <div className="space-y-6">
+          <div className="container main-container">
+            <div className="content-container">
               <CategorySelector
                   value={selectedCategory}
                   onChange={(cat) => navigate(`/category/${cat}`)}

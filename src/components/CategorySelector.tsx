@@ -12,7 +12,7 @@ interface Props {
 
 export default function CategorySelector({ value, onChange, recipeCounts }: Props) {
   return (
-    <div className="mb-4 flex flex-wrap gap-2">
+    <div className="category-selector">
       {categories.map(({ key, name }) => {
         const count = recipeCounts?.[key];
         const displayLabel = `${categoryEmojis[key]} ${name}${count !== undefined ? ` (${count})` : ''}`;
@@ -20,11 +20,7 @@ export default function CategorySelector({ value, onChange, recipeCounts }: Prop
         return (
             <button
                 key={key}
-                className={`px-3 py-1 rounded border transition-colors ${
-                    key === value
-                        ? 'bg-blue-600 text-white border-blue-600'
-                        : 'bg-gray-100 hover:bg-gray-200 border-gray-300'
-                }`}
+                className={key === value ? 'selected' : ''}
                 onClick={() => onChange(key)}
             >
               {displayLabel}

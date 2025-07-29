@@ -19,41 +19,126 @@
   }
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Category selector styles */
+.category-selector {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.category-selector button {
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.375rem;
+  border: 1px solid #d1d5db;
+  transition: all 0.2s;
+  background-color: #f3f4f6;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.category-selector button:hover {
+  background-color: #e5e7eb;
 }
 
-.card {
-  padding: 2em;
+.category-selector button.selected {
+  background-color: #2563eb;
+  color: white;
+  border-color: #2563eb;
 }
 
-.read-the-docs {
-  color: #888;
+/* Recipe list styles */
+.recipe-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
+
+.recipe-button {
+  text-align: left;
+  width: 100%;
+  font-weight: 600;
+  font-size: 1.125rem;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.recipe-button:hover {
+  text-decoration: underline;
+}
+
+/* Recipe card styles */
+.recipe-card {
+  margin-top: 0.5rem;
+  padding: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  background-color: #f9fafb;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.recipe-metadata {
+  font-size: 0.875rem;
+  color: #374151;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.recipe-card h3 {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+}
+
+.recipe-card ul {
+  list-style-type: disc;
+  list-style-position: inside;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+}
+
+.recipe-card ol {
+  list-style-type: decimal;
+  list-style-position: inside;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* App layout styles */
+.app-container {
+  min-height: 100vh;
+  background-color: #f9fafb;
+}
+
+.app-header {
+  background-color: white;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.header-container {
+  padding: 1.5rem 0;
+}
+
+.main-container {
+  padding: 2rem 0;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
 .homepage {
   max-width: 760px;
   margin: 0 auto;
