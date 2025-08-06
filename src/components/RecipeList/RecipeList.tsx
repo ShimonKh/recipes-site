@@ -26,10 +26,10 @@ export default function RecipeList({ category }: Props) {
       {recipes.map((recipe) => (
         <div key={recipe.title}>
           <button
-            className={styles.recipeButton}
-            onClick={() => toggleExpand(recipe.title)}
+              className={`${styles.recipeCardButton} ${expanded === recipe.title ? styles.active : ''}`}
+              onClick={() => toggleExpand(recipe.title)}
           >
-            {recipe.title}
+            <span className={styles.recipeCardTitle}>{recipe.title}</span>
           </button>
 
           {expanded === recipe.title && (

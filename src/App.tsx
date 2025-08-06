@@ -62,7 +62,10 @@ function CategoryPage() {
         <header className="app-header">
           {/* Можно оставить header на всю ширину, либо тоже обернуть в контейнер */}
           <div className="container header-container">
-            <h1>📚 Книга рецептов</h1>
+            <div className="header-title">
+              <span className="logo-emoji" aria-hidden="true">📚</span>
+              <span className="header-text">Книга рецептов</span>
+            </div>
           </div>
         </header>
         <main>
