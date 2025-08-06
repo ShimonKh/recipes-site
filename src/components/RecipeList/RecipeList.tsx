@@ -12,7 +12,7 @@ export default function RecipeList({ category }: Props) {
   const [expanded, setExpanded] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch(import.meta.env.BASE_URL + `recipes/${category}.json`)
+    fetch(import.meta.env.BASE_URL + `/recipes/${category}.json`)
       .then((res) => res.json())
       .then((data) => setRecipes(data));
   }, [category]);

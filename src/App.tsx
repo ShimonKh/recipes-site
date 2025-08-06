@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useParams, useNavigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, useParams, useNavigate } from 'react-router-dom';
 import type { Category } from './data/types';
 
 import HomePage from './components/HomePage/HomePage';
@@ -33,7 +33,7 @@ function CategoryPage() {
 
       for (const category of categories) {
         try {
-          const response = await fetch(import.meta.env.BASE_URL + `recipes/${category}.json`);
+          const response = await fetch(import.meta.env.BASE_URL + `/recipes/${category}.json`);
           if (response.ok) {
             const text = await response.text();
             if (text.trim() !== '') {
@@ -86,14 +86,14 @@ function CategoryPage() {
 
 function App() {
   return (
-      <BrowserRouter basename={import.meta.env.BASE_URL}>
+      <HashRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/category/:category" element={<CategoryPage />} />
           {/* можно добавить fallback-роут */}
           <Route path="*" element={<HomePage />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
   );
 }
 
