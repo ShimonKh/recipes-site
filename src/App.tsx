@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useParams, useNavigate } from 'react-router-dom';
 import type { Category } from './data/types';
 
-import HomePage from './components/HomePage';
-import CategorySelector from './components/CategorySelector';
-import RecipeList from './components/RecipeList';
+import HomePage from './components/HomePage/HomePage';
+import CategorySelector from './components/CategorySelector/CategorySelector';
+import RecipeList from './components/RecipeList/RecipeList';
 
 const categories: Category[] = [
   'salads', 'fish', 'meat', 'sides', 'breakfasts',

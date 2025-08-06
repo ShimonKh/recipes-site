@@ -1,0 +1,48 @@
+.categorySelector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 28px;
+  justify-content: flex-start;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 110px;
+  padding: 10px 20px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  background: #f6fef9;
+  border: 1.5px solid #b3d9be;
+  border-radius: 10px;
+  color: #226632;
+  cursor: pointer;
+  transition: box-shadow 0.16s, border-color 0.16s, background 0.14s;
+  outline: none;
+}
+
+.button.selected,
+.button:focus-visible {
+  background: #daf4e0;
+  border-color: #67bb8c;
+  box-shadow: 0 4px 12px #0001;
+}
+
+.button:hover:not(.selected) {
+  border-color: #8ddfb1;
+  background: #ecf7f0;
+}
+
+@media (max-width: 600px) {
+  .categorySelector {
+    gap: 8px;
+    justify-content: center;
+  }
+  .button {
+    min-width: 42vw;
+    font-size: 0.99rem;
+    padding: 10px 8px;
+  }
+}

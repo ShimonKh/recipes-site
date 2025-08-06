@@ -1,4 +1,5 @@
-import type { Recipe } from '../data/types';
+import type { Recipe } from '../../data/types';
+import styles from './RecipeCard.module.css';
 
 interface Props {
   recipe: Recipe;
@@ -8,11 +9,10 @@ export default function RecipeCard({ recipe }: Props) {
   const { ingredients, steps, metadata } = recipe;
 
   return (
-    <div className="recipe-card">
-
+    <div className={styles.recipeCard}>
       {/* Метаданные */}
       {metadata && (
-        <div className="recipe-metadata">
+        <div className={styles.metadata}>
           {metadata.servings && (
             <p>
               <strong>Порции:</strong> {metadata.servings}

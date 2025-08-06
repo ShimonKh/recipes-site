@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import type { Recipe, Category } from '../data/types';
-import RecipeCard from './RecipeCard';
+import type { Recipe, Category } from '../../data/types';
+import RecipeCard from '../RecipeCard/RecipeCard';
+import styles from './RecipeList.module.css';
 
 interface Props {
   category: Category;
@@ -21,11 +22,11 @@ export default function RecipeList({ category }: Props) {
   };
 
   return (
-    <div className="recipe-list">
+    <div className={styles.recipeList}>
       {recipes.map((recipe) => (
         <div key={recipe.title}>
           <button
-            className="recipe-button"
+            className={styles.recipeButton}
             onClick={() => toggleExpand(recipe.title)}
           >
             {recipe.title}
