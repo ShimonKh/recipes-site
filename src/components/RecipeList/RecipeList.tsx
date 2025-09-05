@@ -14,7 +14,12 @@ export default function RecipeList({ category }: Props) {
   useEffect(() => {
     fetch(import.meta.env.BASE_URL + `/recipes/${category}.json`)
       .then((res) => res.json())
-      .then((data) => setRecipes(data));
+      .then((data) => {
+        const sortedByTitle = [...data].sort((a: Recipe, b: Recipe) =>
+          a.title.localeCompare(b.title, 'ru', { sensitivity: 'base' })
+        );
+        setRecipes(sortedByTitle);
+      });
   }, [category]);
 
   const toggleExpand = (title: string) => {
