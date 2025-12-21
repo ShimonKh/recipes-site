@@ -14,6 +14,7 @@ export interface Recipe {
   category: string;
   ingredients: string[];
   steps: string[];
+  tips?: string[];
   metadata?: {
     servings?: string;
     equipment?: string;

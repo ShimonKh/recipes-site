@@ -6,7 +6,7 @@ interface Props {
 }
 
 export default function RecipeCard({ recipe }: Props) {
-  const { ingredients, steps, metadata } = recipe;
+  const { ingredients, steps, tips, metadata } = recipe;
 
   return (
     <div className={styles.recipeCard}>
@@ -55,6 +55,18 @@ export default function RecipeCard({ recipe }: Props) {
           ))}
         </ol>
       </div>
+
+      {/* Советы */}
+      {tips && tips.length > 0 && (
+        <div className={styles.tips}>
+          <h3>💡 Советы:</h3>
+          <ul>
+            {tips.map((tip, idx) => (
+              <li key={idx}>{tip}</li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
