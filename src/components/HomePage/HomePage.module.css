@@ -3,6 +3,16 @@
   margin: 0 auto;
   padding: 24px;
   font-family: inherit;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .homepage {
+    padding: 16px;
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 .hero {
@@ -57,6 +67,9 @@
   gap: 12px;
   flex-wrap: wrap;
   margin-bottom: 28px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .suggestedCard {
@@ -66,18 +79,61 @@
   font-size: 1rem;
   font-weight: 500;
   color: #7d5617;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  min-width: 0;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.2s, transform 0.1s;
+  font-family: inherit;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+  display: block;
+}
+
+.suggestedCard:hover {
+  background: #e8d9c5;
+  transform: translateY(-1px);
+  color: #7d5617;
+}
+
+.suggestedCard:active {
+  transform: translateY(0);
+  background: #ddd0b8;
+}
+
+.suggestedCard:focus-visible {
+  outline: 2px solid #7d5617;
+  outline-offset: 2px;
+}
+
+.suggestedCard:hover {
+  background: #e8d9c5;
+  transform: translateY(-1px);
+}
+
+.suggestedCard:active {
+  transform: translateY(0);
+  background: #ddd0b8;
 }
 
 @media (max-width: 600px) {
   .suggestedList {
     flex-direction: column;
     gap: 8px;
+    width: 100%;
+    min-width: 0;
   }
   
   .suggestedCard {
     width: 100%;
+    max-width: 100%;
     font-size: 0.98rem;
-    padding: 10px 10px;
+    padding: 10px 16px;
+    box-sizing: border-box;
   }
 }
 
