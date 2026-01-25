@@ -4,7 +4,7 @@ interface MobileSearchButtonProps {
   onClick: () => void;
 }
 
-export default function MobileSearchButton({ onClick }: MobileSearchButtonProps): JSX.Element {
+export default function MobileSearchButton({ onClick }: MobileSearchButtonProps) {
   return (
     <button
       className={styles.mobileSearchButton}

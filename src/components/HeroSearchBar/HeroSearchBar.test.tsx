@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import HeroSearchBar from './HeroSearchBar';
 import * as useSearchHook from '../../hooks/useSearch';
 import type { SearchResult } from '../../utils/searchRecipes';
@@ -54,6 +54,9 @@ describe('HeroSearchBar', () => {
       setQuery: mockSetQuery,
       results: [],
       clearSearch: mockClearSearch,
+      isLoading: false,
+      error: null,
+      isDebouncing: false,
     });
   });
 
@@ -97,6 +100,9 @@ describe('HeroSearchBar', () => {
         setQuery: mockSetQuery,
         results: [],
         clearSearch: mockClearSearch,
+        isLoading: false,
+        error: null,
+        isDebouncing: false,
       });
 
       render(<HeroSearchBar onResultClick={mockOnResultClick} />);
@@ -110,6 +116,9 @@ describe('HeroSearchBar', () => {
         setQuery: mockSetQuery,
         results: [],
         clearSearch: mockClearSearch,
+        isLoading: false,
+        error: null,
+        isDebouncing: false,
       });
 
       render(<HeroSearchBar onResultClick={mockOnResultClick} />);
@@ -136,6 +145,9 @@ describe('HeroSearchBar', () => {
         setQuery: mockSetQuery,
         results: [],
         clearSearch: mockClearSearch,
+        isLoading: false,
+        error: null,
+        isDebouncing: false,
       });
 
       render(<HeroSearchBar onResultClick={mockOnResultClick} />);
@@ -151,6 +163,9 @@ describe('HeroSearchBar', () => {
         setQuery: mockSetQuery,
         results: [mockSearchResult],
         clearSearch: mockClearSearch,
+        isLoading: false,
+        error: null,
+        isDebouncing: false,
       });
 
       render(<HeroSearchBar onResultClick={mockOnResultClick} />);
@@ -163,6 +178,9 @@ describe('HeroSearchBar', () => {
         setQuery: mockSetQuery,
         results: [],
         clearSearch: mockClearSearch,
+        isLoading: false,
+        error: null,
+        isDebouncing: false,
       });
 
       render(<HeroSearchBar onResultClick={mockOnResultClick} />);
@@ -175,6 +193,9 @@ describe('HeroSearchBar', () => {
         setQuery: mockSetQuery,
         results: [mockSearchResult, mockSearchResult2],
         clearSearch: mockClearSearch,
+        isLoading: false,
+        error: null,
+        isDebouncing: false,
       });
 
       render(<HeroSearchBar onResultClick={mockOnResultClick} />);
@@ -187,6 +208,9 @@ describe('HeroSearchBar', () => {
         setQuery: mockSetQuery,
         results: [mockSearchResult],
         clearSearch: mockClearSearch,
+        isLoading: false,
+        error: null,
+        isDebouncing: false,
       });
 
       render(<HeroSearchBar onResultClick={mockOnResultClick} />);
@@ -205,6 +229,9 @@ describe('HeroSearchBar', () => {
         setQuery: mockSetQuery,
         results: [],
         clearSearch: mockClearSearch,
+        isLoading: false,
+        error: null,
+        isDebouncing: false,
       });
 
       render(<HeroSearchBar onResultClick={mockOnResultClick} />);
@@ -219,6 +246,9 @@ describe('HeroSearchBar', () => {
         setQuery: mockSetQuery,
         results: [],
         clearSearch: mockClearSearch,
+        isLoading: false,
+        error: null,
+        isDebouncing: false,
       });
 
       render(<HeroSearchBar onResultClick={mockOnResultClick} />);
@@ -234,6 +264,9 @@ describe('HeroSearchBar', () => {
         setQuery: mockSetQuery,
         results: [mockSearchResult],
         clearSearch: mockClearSearch,
+        isLoading: false,
+        error: null,
+        isDebouncing: false,
       });
 
       render(<HeroSearchBar onResultClick={mockOnResultClick} />);
@@ -256,6 +289,9 @@ describe('HeroSearchBar', () => {
         setQuery: mockSetQuery,
         results: [mockSearchResult],
         clearSearch: mockClearSearch,
+        isLoading: false,
+        error: null,
+        isDebouncing: false,
       });
 
       const { container } = render(<HeroSearchBar onResultClick={mockOnResultClick} />);

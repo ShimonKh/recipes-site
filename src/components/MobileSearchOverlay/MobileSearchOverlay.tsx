@@ -15,7 +15,7 @@ export default function MobileSearchOverlay({
   isOpen, 
   onClose, 
   onResultClick 
-}: MobileSearchOverlayProps): JSX.Element | null {
+}: MobileSearchOverlayProps) {
   const { query, setQuery, results, clearSearch, error, isDebouncing } = useSearch();
   const inputRef = useRef<HTMLInputElement>(null);
   const inputId = 'mobile-search-input';

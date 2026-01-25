@@ -9,8 +9,8 @@ interface SearchBarProps {
   onResultClick?: (result: SearchResult) => void;
 }
 
-export default function SearchBar({ onResultClick }: SearchBarProps): JSX.Element {
-  const { query, setQuery, results, clearSearch, isLoading, error, isDebouncing } = useSearch();
+export default function SearchBar({ onResultClick }: SearchBarProps) {
+  const { query, setQuery, results, clearSearch, error, isDebouncing } = useSearch();
   const [isOpen, setIsOpen] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const inputId = 'search-input';

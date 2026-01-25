@@ -6,6 +6,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   base: '/recipes-site',
   plugins: [react()],
+  // @ts-expect-error - vitest types
   test: {
     globals: true,
     environment: 'jsdom',

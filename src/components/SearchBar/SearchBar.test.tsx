@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import SearchBar from './SearchBar';
 import * as useSearchHook from '../../hooks/useSearch';
 import type { SearchResult } from '../../utils/searchRecipes';
@@ -48,6 +48,7 @@ describe('SearchBar', () => {
       clearSearch: mockClearSearch,
       isLoading: false,
       error: null,
+      isDebouncing: false,
     });
   });
 
@@ -86,6 +87,7 @@ describe('SearchBar', () => {
         clearSearch: mockClearSearch,
         isLoading: false,
         error: null,
+        isDebouncing: false,
       });
 
       render(<SearchBar />);
@@ -101,6 +103,7 @@ describe('SearchBar', () => {
         clearSearch: mockClearSearch,
         isLoading: false,
         error: null,
+        isDebouncing: false,
       });
 
       render(<SearchBar />);
@@ -129,6 +132,7 @@ describe('SearchBar', () => {
         clearSearch: mockClearSearch,
         isLoading: false,
         error: null,
+        isDebouncing: false,
       });
 
       render(<SearchBar />);
@@ -146,6 +150,7 @@ describe('SearchBar', () => {
         clearSearch: mockClearSearch,
         isLoading: false,
         error: null,
+        isDebouncing: false,
       });
 
       render(<SearchBar />);
@@ -160,13 +165,14 @@ describe('SearchBar', () => {
         clearSearch: mockClearSearch,
         isLoading: false,
         error: null,
+        isDebouncing: false,
       });
 
       render(<SearchBar />);
       // Now shows empty state instead of hiding (query >= 2)
       // SearchResults should render with empty state
       // Use queryByText to avoid throwing if not found
-      const emptyState = screen.queryByText((content, element) => {
+      const emptyState = screen.queryByText((_content, element) => {
         return element?.textContent?.includes('Ничего не найдено') || false;
       });
       // If empty state is not found, check if dropdown exists at all
@@ -187,6 +193,7 @@ describe('SearchBar', () => {
         clearSearch: mockClearSearch,
         isLoading: false,
         error: null,
+        isDebouncing: false,
       });
 
       render(<SearchBar onResultClick={mockOnResultClick} />);
@@ -205,6 +212,7 @@ describe('SearchBar', () => {
         clearSearch: mockClearSearch,
         isLoading: false,
         error: null,
+        isDebouncing: false,
       });
 
       render(<SearchBar onResultClick={mockOnResultClick} />);

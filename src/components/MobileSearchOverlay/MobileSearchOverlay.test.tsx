@@ -43,6 +43,9 @@ describe('MobileSearchOverlay', () => {
       setQuery: mockSetQuery,
       results: [],
       clearSearch: mockClearSearch,
+      isLoading: false,
+      error: null,
+      isDebouncing: false,
     });
   });
 
@@ -182,6 +185,9 @@ describe('MobileSearchOverlay', () => {
         setQuery: mockSetQuery,
         results: [],
         clearSearch: mockClearSearch,
+        isLoading: false,
+        error: null,
+        isDebouncing: false,
       });
 
       render(
@@ -203,6 +209,9 @@ describe('MobileSearchOverlay', () => {
         setQuery: mockSetQuery,
         results: [mockSearchResult],
         clearSearch: mockClearSearch,
+        isLoading: false,
+        error: null,
+        isDebouncing: false,
       });
 
       render(
@@ -223,6 +232,9 @@ describe('MobileSearchOverlay', () => {
         setQuery: mockSetQuery,
         results: [],
         clearSearch: mockClearSearch,
+        isLoading: false,
+        error: null,
+        isDebouncing: false,
       });
 
       render(
@@ -242,6 +254,9 @@ describe('MobileSearchOverlay', () => {
         setQuery: mockSetQuery,
         results: [mockSearchResult],
         clearSearch: mockClearSearch,
+        isLoading: false,
+        error: null,
+        isDebouncing: false,
       });
 
       render(
