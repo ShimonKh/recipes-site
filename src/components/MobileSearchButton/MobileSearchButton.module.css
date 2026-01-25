@@ -1,0 +1,33 @@
+/* MobileSearchButton.module.css */
+
+.mobileSearchButton {
+  display: none; /* Hidden by default (desktop) */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 1.5rem;
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.mobileSearchButton:hover,
+.mobileSearchButton:focus {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.mobileSearchButton:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Show only on mobile */
+@media (max-width: 767px) {
+  .mobileSearchButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

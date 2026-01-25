@@ -1,0 +1,66 @@
+/* src/components/SearchBar/SearchBar.module.css */
+
+.searchContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  z-index: 100;
+}
+
+.searchInput {
+  /* Input styles */
+  padding: 8px 36px 8px 36px; /* Space for icons on both sides */
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  width: 300px;
+  background: white;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+.searchIcon {
+  position: absolute;
+  left: 10px;
+  color: #9ca3af;
+  pointer-events: none;
+}
+
+.clearButton {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #9ca3af;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clearButton:hover {
+  color: #6b7280;
+}
+
+.clearButton:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Responsive widths */
+@media (max-width: 1023px) {
+  .searchInput {
+    width: 250px;
+  }
+}
+
+@media (max-width: 767px) {
+  .searchContainer {
+    display: none; /* Hidden on mobile - EPIC-3 adds icon */
+  }
+}

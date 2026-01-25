@@ -1,0 +1,159 @@
+/* src/components/HeroSearchBar/HeroSearchBar.module.css */
+
+.heroSearchContainer {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 24px auto 0;
+}
+
+.searchInputWrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 16px;
+  font-size: 1.25rem;
+  color: #9ca3af;
+  pointer-events: none;
+}
+
+.heroSearchInput {
+  width: 100%;
+  padding: 16px 48px 16px 48px;
+  font-size: 18px;
+  border: 2px solid #b3d9be;
+  border-radius: 12px;
+  background: white;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.heroSearchInput:focus {
+  outline: none;
+  border-color: #226632;
+  box-shadow: 0 0 0 4px rgba(34, 102, 50, 0.3);
+}
+
+.heroSearchInput::placeholder {
+  color: #9ca3af;
+}
+
+.clearButton {
+  position: absolute;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 4px;
+  min-width: 32px;
+  min-height: 32px;
+}
+
+.clearButton:hover {
+  color: #6b7280;
+}
+
+.clearButton:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Results dropdown */
+.resultsDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 8px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 50;
+}
+
+.resultsHeader {
+  padding: 12px 16px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #6b7280;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+  border-radius: 12px 12px 0 0;
+}
+
+.emptyState {
+  padding: 32px 24px;
+  text-align: center;
+  color: #6b7280;
+}
+
+.emptyState p:first-child {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.hint {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.hintState {
+  padding: 24px 16px;
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.emptyState .emoji {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.emptyState p:first-of-type {
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.errorState {
+  padding: 24px 16px;
+  text-align: center;
+  color: #dc2626;
+  background: #fef2f2;
+  border-radius: 8px;
+  margin: 8px;
+}
+
+.errorState .errorIcon {
+  font-size: 1.5rem;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.errorState p {
+  margin: 0 0 4px 0;
+}
+
+.errorState .hint {
+  color: #991b1b;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .heroSearchContainer {
+    max-width: 100%;
+  }
+  
+  .heroSearchInput {
+    font-size: 16px; /* Prevent iOS zoom */
+    padding: 14px 44px;
+  }
+}

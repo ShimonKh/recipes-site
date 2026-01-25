@@ -1,14 +1,24 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { categories } from '../../data/categories';
 import { categoryEmojis } from '../../data/categoryEmojis';
+import HeroSearchBar from '../HeroSearchBar/HeroSearchBar';
+import type { SearchResult } from '../../utils/searchRecipes';
 import styles from './HomePage.module.css';
 
 export default function HomePage() {
+  const navigate = useNavigate();
+
+  const handleSearchResultClick = (result: SearchResult) => {
+    const encodedTitle = encodeURIComponent(result.recipe.title);
+    navigate(`/category/${result.category}?recipe=${encodedTitle}`);
+  };
+
   return (
     <div className={`container ${styles.homepage}`}>
       <header className={styles.hero}>
         <h1>🌿 Домашние рецепты</h1>
         <p>Простые, вкусные и проверенные блюда для будней и праздников</p>
+        <HeroSearchBar onResultClick={handleSearchResultClick} />
       </header>
 
       <section>

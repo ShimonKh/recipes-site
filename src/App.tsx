@@ -1,10 +1,14 @@
 import { useState, useEffect } from 'react';
-import { HashRouter, Routes, Route, useParams, useNavigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, useParams, useNavigate, useSearchParams, Link } from 'react-router-dom';
 import type { Category } from './data/types';
+import type { SearchResult } from './utils/searchRecipes';
 
 import HomePage from './components/HomePage/HomePage';
 import CategorySelector from './components/CategorySelector/CategorySelector';
 import RecipeList from './components/RecipeList/RecipeList';
+import SearchBar from './components/SearchBar/SearchBar';
+import MobileSearchButton from './components/MobileSearchButton/MobileSearchButton';
+import MobileSearchOverlay from './components/MobileSearchOverlay/MobileSearchOverlay';
 
 const categories: Category[] = [
   'salads', 'fish', 'meat', 'sides', 'breakfasts',
@@ -15,8 +19,19 @@ const categories: Category[] = [
 function CategoryPage() {
   const { category } = useParams<{ category: Category }>();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [selectedCategory, setSelectedCategory] = useState<Category>(category || 'salads');
   const [recipeCounts, setRecipeCounts] = useState<Record<string, number>>({});
+  const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
+
+  // Get recipe from URL on mount
+  const recipeFromUrl = searchParams.get('recipe');
+
+  const handleSearchResultClick = (result: SearchResult) => {
+    // Navigate with recipe parameter
+    const encodedTitle = encodeURIComponent(result.recipe.title);
+    navigate(`/category/${result.category}?recipe=${encodedTitle}`);
+  };
 
   useEffect(() => {
     if (!category || !categories.includes(category as Category)) {
@@ -62,12 +77,21 @@ function CategoryPage() {
         <header className="app-header">
           {/* Можно оставить header на всю ширину, либо тоже обернуть в контейнер */}
           <div className="container header-container">
-            <div className="header-title">
+            <Link to="/" className="header-title">
               <span className="logo-emoji" aria-hidden="true">📚</span>
               <span className="header-text">Книга рецептов</span>
-            </div>
+            </Link>
+            <SearchBar onResultClick={handleSearchResultClick} />
+            <MobileSearchButton onClick={() => setIsMobileSearchOpen(true)} />
           </div>
         </header>
+        
+        <MobileSearchOverlay
+          isOpen={isMobileSearchOpen}
+          onClose={() => setIsMobileSearchOpen(false)}
+          onResultClick={handleSearchResultClick}
+        />
+        
         <main>
           <div className="container main-container">
             <div className="content-container">
@@ -76,7 +100,7 @@ function CategoryPage() {
                   onChange={(cat) => navigate(`/category/${cat}`)}
                   recipeCounts={recipeCounts}
               />
-              <RecipeList category={selectedCategory} />
+              <RecipeList category={selectedCategory} initialExpanded={recipeFromUrl} />
             </div>
           </div>
         </main>

@@ -32,7 +32,10 @@
 }
 
 .header-container {
-  padding: 1.5rem 0;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .main-container {
@@ -49,10 +52,17 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  justify-content: center;
   font-weight: 700;
-  font-size: 2.2em;
-  margin-bottom: 12px;
+  font-size: 2rem;
+  margin-bottom: 0;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.header-title:hover {
+  opacity: 0.8;
 }
 
 .logo-emoji {
@@ -64,4 +74,16 @@
   font-size: 1em;
   font-family: inherit;
   letter-spacing: -0.02em;
+}
+
+/* Responsive adjustments for header */
+@media (max-width: 767px) {
+  .header-container {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .header-title {
+    justify-content: center;
+  }
 }

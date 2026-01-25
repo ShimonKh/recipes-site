@@ -1,0 +1,180 @@
+/* MobileSearchOverlay.module.css */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Backdrop */
+.backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* Content area */
+.content {
+  position: relative;
+  background: white;
+  animation: slideDown 0.3s ease-out;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Header with search input */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e5e7eb;
+  background: white;
+}
+
+.searchInputContainer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 10px;
+  color: #9ca3af;
+  pointer-events: none;
+  font-size: 1.2rem;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 12px 12px 12px 40px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 16px; /* Prevents zoom on iOS */
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 8px;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.closeButton:hover,
+.closeButton:focus {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.closeButton:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Results area */
+.results {
+  flex: 1;
+  overflow-y: auto;
+  background: white;
+}
+
+/* Empty state */
+.emptyState {
+  padding: 48px 24px;
+  text-align: center;
+  color: #6b7280;
+}
+
+.emptyState .emoji {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.emptyState p {
+  margin: 0;
+}
+
+.emptyState p:first-of-type {
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.hintState {
+  padding: 24px 16px;
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.hint {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.errorState {
+  padding: 24px 16px;
+  text-align: center;
+  color: #dc2626;
+  background: #fef2f2;
+  border-radius: 8px;
+  margin: 8px;
+}
+
+.errorState .errorIcon {
+  font-size: 1.5rem;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.errorState p {
+  margin: 0 0 4px 0;
+}
+
+.errorState .hint {
+  color: #991b1b;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { 
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
